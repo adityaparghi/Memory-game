@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #6563ff;
+}
+.view {
+    backface-visibility: hidden;
+    transition: transform 0.4s;
+  }
+.wrapper{
+    height: 400px;
+    width: 400px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 25px;
+}
+.cards, .card, .view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cards{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards .card{
+    cursor: pointer;
+    position: relative;
+    perspective: 800px; 
+    transform-style: preserve-3d;
+
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+
+.cards .card .view{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    user-select:none;
+    pointer-events: none;
+    border-radius: 7px;
+    transition:transform 0.4s linear;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    
+}
+.card .front-view span{
+    color: #6563ff;
+    font-size: 40px;
+}
+.card .back-view{
+    transform: rotateY(-180deg);
+}
+.card .back-view img{
+    max-width: 45px;
+}
+
+.card.flip .front-view {
+    transform: rotateY(-180deg);
+  }
+  
+  .card.flip .back-view {
+    transform: rotateY(0deg);
+  }
+/* .card:hover .front-view{
+    transform: rotateY(0);
+    z-index: 2;
+}
+.card:hover .back-view{
+    transform: rotateY(180deg);
+} */
